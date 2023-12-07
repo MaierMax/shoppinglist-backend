@@ -3,6 +3,7 @@ package htwberlin.webtech.shoppingListItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class ItemService {
 
@@ -26,11 +27,23 @@ public class ItemService {
     public ShoppingListItem update(Long id, String newDescr){
         ShoppingListItem item = get(id);
         item.setItemDescr(newDescr);
+        repo.save(item);
         return item;
     }
 
-    //TODO soll nur alle aus bestimmter Liste löschen
-    public void deleteAll(){
-        repo.deleteAll();
+    public void deleteAllOfList(Iterable<ShoppingListItem> itemList){
+        repo.deleteAll(itemList);
     }
+
+    public Iterable<ShoppingListItem> getAll(){
+        return repo.findAll();
+    }
+
+
+    public Iterable<ShoppingListItem> getAllOfList(Long id){
+        return repo.findByListID(id);
+    }
+
+
+
 }
