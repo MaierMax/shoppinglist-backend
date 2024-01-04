@@ -39,11 +39,24 @@ public class ItemController {
         service.delete(itemId);
     }
 
-    @PutMapping("/updateItem/{id}")
-    public ShoppingListItem updateItem(@RequestBody String jsonString, @PathVariable String id){
+    @DeleteMapping("/deleteAllItems")
+    public void deleteAllItems(){
+        service.deleteAll();
+    }
+
+    @PutMapping("/updateItemDescription/{id}")
+    public ShoppingListItem updateItemDescr(@RequestBody String jsonString, @PathVariable String id){
         Long itemId = Long.parseLong(id);
         JSONObject jsonObject = new JSONObject(jsonString);
         String newDescr = jsonObject.getString("newDescr");
-        return service.update(itemId, newDescr);
+        return service.updateDescr(itemId, newDescr);
+    }
+
+    @PutMapping("/updateItemName/{id}")
+    public ShoppingListItem updateItemName(@RequestBody String jsonString, @PathVariable String id){
+        Long itemId = Long.parseLong(id);
+        JSONObject jsonObject = new JSONObject(jsonString);
+        String newName = jsonObject.getString("newName");
+        return service.updateName(itemId, newName);
     }
 }

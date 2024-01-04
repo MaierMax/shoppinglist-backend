@@ -18,13 +18,13 @@ public class ShoppingListItem{
 
     public ShoppingListItem(){}
     public ShoppingListItem(Long listID, String itemName, String itemDescr){
-        this.listID = listID; //hier muss ID der zugehörigen Einkaufsliste übergeben werden
+        this.listID = listID;
         this.itemName = itemName;
         this.itemDescr = itemDescr;
     }
 
     public ShoppingListItem(Long listID, String itemName){
-        this.listID = listID; //hier muss ID der zugehörigen Einkaufsliste übergeben werden
+        this.listID = listID;
         this.itemName = itemName;
     }
 

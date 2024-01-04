@@ -24,15 +24,26 @@ public class ItemService {
         repo.delete(item);
     }
 
-    public ShoppingListItem update(Long id, String newDescr){
+    public ShoppingListItem updateDescr(Long id, String newDescr){
         ShoppingListItem item = get(id);
         item.setItemDescr(newDescr);
         repo.save(item);
         return item;
     }
 
+    public ShoppingListItem updateName(Long id, String newName){
+        ShoppingListItem item = get(id);
+        item.setItemName(newName);
+        repo.save(item);
+        return item;
+    }
+
     public void deleteAllOfList(Iterable<ShoppingListItem> itemList){
         repo.deleteAll(itemList);
+    }
+
+    public void deleteAll(){
+        repo.deleteAll();
     }
 
     public Iterable<ShoppingListItem> getAll(){
