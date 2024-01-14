@@ -17,6 +17,6 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedOrigins("http://localhost:8081",
                                 "http://localhost:3000",
                                 "http://localhost:5173",
-                                "http://webtech-frontend.herokuapp.com");
+                                "https://shoppinglist-backend.onrender.com");
     }
 }
